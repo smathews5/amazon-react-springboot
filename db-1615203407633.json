@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "productCategory": [
+    {
+      "id": 1,
+      "categoryName": "Electronics",
+      "categoryImage": "C:/img/electronics.jpg",
+      "isPopular": true
+    },
+    {
+      "id": 2,
+      "categoryName": "kidz",
+      "categoryImage": "C:/img/electronics.jpg",
+      "isPopular": true
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "categoryId": 1,
+      "productName": "Samsung TV",
+      "productDesc": "long text",
+      "isBestSeller": true,
+      "productImage": "",
+      "productPrice": 800
+    },
+    {
+      "id": 1,
+      "categoryId": 1,
+      "productName": "Sumeet Mixi",
+      "productDesc": "long text",
+      "isBestSeller": true,
+      "productImage": "",
+      "productPrice": 200
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
