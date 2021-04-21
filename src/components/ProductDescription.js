@@ -40,8 +40,8 @@ const ProductDescription = () => {
   case "3":
     rate = 3;
     break;
-  case "3":
-    rate = 3;
+  case "2":
+    rate = 2;
     break;
   default:
    rate=1;

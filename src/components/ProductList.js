@@ -59,7 +59,7 @@ const ProductList = (props) => {
 
         return (
                 <>
-                <p class="headings-section">
+                <p className="headings-section">
                {selectedcatName}
                 </p>
                         <div className="grid grid-col-3">

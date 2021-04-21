@@ -4,9 +4,9 @@ import Carousel from 'react-bootstrap/Carousel'
 const BootstrapCarousel = () => {
     return (  
         <div>  
-         <div class='container-fluid' >  
+         <div className='container-fluid' >  
           <div className="row title" style={{ marginBottom: "20px" }} >  
-          <div class="col-sm-12 btn btn-warning">  
+          <div className="col-sm-12 btn btn-warning">  
          
          </div>  
          </div>  

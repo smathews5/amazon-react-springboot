@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import ProductsContext from "../context/ProductsContext";
 
 const ProductItem = ({id,prodImage,prodName,bestSeller,index, source,rating}) => {
- 
+  var rate;
   //  alert(id);
     const { storeSelectedProduct} = useContext(ProductsContext);
   // alert(props.product.productImageSmall)
@@ -17,7 +17,23 @@ const ProductItem = ({id,prodImage,prodName,bestSeller,index, source,rating}) =>
  //   alert("selectedProduct"+JSON.stringify(props.product));
    // storeSelectedProduct(props.product);         
     }
-
+    switch(rating) {
+      case "5":
+        rate = 5;
+        break;
+      case "4":
+        rate = 4;
+        break;
+      case "3":
+        rate = 3;
+        break;
+      case "2":
+        rate = 2;
+        break;
+      default:
+       rate=1;
+    }
+    
  
     return (
        
@@ -39,7 +55,7 @@ const ProductItem = ({id,prodImage,prodName,bestSeller,index, source,rating}) =>
         <span className=""><Link to = {"/product/"+id} style={{ textDecoration: 'none',color:'black' }}>{prodName}</Link></span>
         </div>
         <div className="product__rating">
-        {Array(parseInt(rating))
+        {Array(rate)
           .fill()
           .map((_, i) => (
             <p>🌟</p>
