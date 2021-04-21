@@ -40,9 +40,7 @@ const App = () => {
   const [mainMenu, setMainMenu] = useState([productCategory]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
-  const [selectedcatName, setSelectedCatName] = useState([]);
-
-  
+  const [selectedcatName, setSelectedCatName] = useState([]);  
   const history = useHistory();
   
 
@@ -123,9 +121,10 @@ const getFilteredProducts = ()=>{
 
 
 
+
   return (
     <div>
-      <ProductsContext.Provider value={{ mainMenu, productCategory, products, getProductbyCategory, filteredProducts, storeFilteredProducts, storeSelectedProduct, selectedProduct, getFilteredProducts,storeCategoryName,selectedcatName }}>
+      <ProductsContext.Provider value={{ mainMenu, productCategory, products, getProductbyCategory, filteredProducts, storeFilteredProducts, storeSelectedProduct, selectedProduct, getFilteredProducts,storeCategoryName,selectedcatName}}>
    
        <Router>
        <ScrollToTop>

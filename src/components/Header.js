@@ -159,9 +159,9 @@ function Header() {
         </div>
         <img className="flag__header" src={canadaflag} />
         <div className="header__option">
-        {sessionStorage.getItem("username") !=null ?  ( <span className="header__optionLineOne">Hello{sessionStorage.getItem("username")}</span>) : (<span className="header__optionLineOne">Hello Guest</span>) }
+        {sessionStorage.getItem("username") !=null ?  ( <span className="header__optionLineTwo">Hello &nbsp;{sessionStorage.getItem("username")}</span>) : (<span className="header__optionLineOne">Hello Guest</span>) }
        
-          <Link to="/signin"> <span className="header__optionLineTwo">Sign In</span></Link>
+        {sessionStorage.getItem("username") !=null ? ( <Link to="/signin"> <span className="header__optionLineTwo">Sign Out</span></Link>):(<Link to="/signin"> <span className="header__optionLineTwo">Sign In</span></Link>)}
         </div>
 
         <div className="header__option">

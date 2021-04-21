@@ -7,11 +7,12 @@ import  {Link} from 'react-router-dom'
 import ProductsContext from "../context/ProductsContext";
 
 const SiginForm = () => {
-    const { storeFilteredProducts,  storeCategoryName} = useContext(ProductsContext);
+    const { storeFilteredProducts,  storeCategoryName, customerInfo,storeCustomerInfo} = useContext(ProductsContext);
     const [username, setUsername]  = useState("");
     const [password, setPassword]  = useState("");
     const [errorUsername, setErrorUsername]  = useState("");
     const [errorPassword, setErrorPassword]  = useState("");
+   
  
 
     const validateForm = ()=>{
@@ -74,10 +75,17 @@ const SiginForm = () => {
             })
                 .then(res => res.json())
                 .then(data => {                  
-                 alert(data.message)
-                  //  localStorage.setItem("username",username);
-                  window.sessionStorage.setItem("username", username);
-                    window.location.href="/dashboard";
+             alert(data.message);
+                  if(data.message==="You logged in successfully"){
+                    window.sessionStorage.setItem("username", username);
+                
+                      window.location.href="/dashboard";
+                  }
+                  else
+                  {
+                    window.sessionStorage.setItem("username","");
+                  }
+                
 
                 })
                 .catch(err => console.log(`Error : ${err}`))

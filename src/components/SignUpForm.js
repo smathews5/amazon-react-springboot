@@ -11,10 +11,12 @@ const SignUpForm = () => {
     const { storeFilteredProducts, storeCategoryName } = useContext(ProductsContext);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errorName, setErrorName] = useState("");
     const [errorEmail, setErrorEmail] = useState("");
+    const [errorUsername, setErrorUsername] = useState("");
     const [errorPassword, setErrorPassword] = useState("");
     const [errorConfirmPassword, setErrorConfirmPassword] = useState("");
 
@@ -42,7 +44,14 @@ const SignUpForm = () => {
 
         }
 
+        if (customer.username === "") {
+            setErrorUsername("You must enter a User name")
+            isValidated = false;
+        } else {
+            setErrorUsername("")
+            isValidated = true;
 
+        }
 
         if (customer.password === "") {
             setErrorPassword("You must enter a password")
@@ -56,7 +65,7 @@ const SignUpForm = () => {
             isValidated = false;
         }
         else if (customer.password.search(/[0-9]/) < 0) {
-            setErrorPassword("Your password must contain at least one sinu");     
+            setErrorPassword("Your password must contain at least one number");     
             isValidated = false;
         }  else if (!customer.password.match(/^[0-9a-zA-Z]+$/)) {
             setErrorPassword("Your password must contain only letters and numbers");     
@@ -78,10 +87,12 @@ const SignUpForm = () => {
     const [customer, setCustomer] = useState({
         name: "",
         email: "",
+        username: "",
         password: "",
         confirmPassword: "",
         errorName: "",
         errorEmail: "",
+        errorUsername: "",
         errorPassword: "",
         errorConfirmPassword: ""
     })
@@ -100,15 +111,17 @@ const SignUpForm = () => {
                 body: JSON.stringify(customer)
             })
                 .then(res => res.json())
-                .then(data => {
-                    alert('The customer ${data.name} was registered successfully!!!!')
+                .then(data => {                 
+                    alert("The customer "+data.body[0].name+" is registered successfully!!!!")
                     setCustomer({
                         name: "",
                         email: "",
+                        username: "",
                         password: "",
                         confirmPassword: "",
                         errorName: "",
                         errorEmail: "",
+                        errorUsername: "",
                         errorPassword: "",
                         errorConfirmPassword: ""
                     })
@@ -117,19 +130,7 @@ const SignUpForm = () => {
                 .catch(err => console.log(`Error : ${err}`))
 
         } 
-        /*else{
-           event.preventDefault();
-           setCustomer({
-               name: "",
-               email: "",
-               password: "",
-               confirmPassword:"",
-               errorName: "",
-               errorEmail:"",
-               errorPassword:"",
-               errorConfirmPassword:""
-           })
-        }*/
+     
     }
 
 
@@ -173,6 +174,21 @@ const SignUpForm = () => {
                     <span className="error">{errorEmail}</span>
 
                 </div>
+
+                <div className="form-control-container">
+
+                <label htmlFor="name"> User name</label>
+
+                <input className="form-control" type="text" id="name" value={customer.username} onChange={(event) => {
+                    setCustomer({
+                        ...customer,
+                        username: event.target.value
+                    })
+
+                }} />
+                <span className="error">{errorUsername}</span>
+
+            </div>
 
                 <div className="form-control-container">
 

@@ -195,6 +195,13 @@ div.container {
     grid-template-columns:  1fr 200px;
 }
 
+.grid-col-dashboard
+{
+    width:100%;
+    grid-template-columns:  1fr 500px auto;
+    align-content: center ;
+}
+
 .hide
 {
     display:none;
@@ -517,6 +524,33 @@ img{
 .footer-span
 {
     font-weight: bold;
+}
+
+.dash-p
+{
+    font-weight: normal;
+    padding-left: 100px;
+    margin-left: 100px ;
+    margin-bottom: 200px;
+}
+.headingdiv
+{
+    padding-left: 100px;
+    margin-left: 100px ;
+    font-weight: bold;
+    font-style: italic;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.headingmain
+{
+    padding-top: 100px;
+    padding-left: 100px;
+    margin-left: 100px ;
+    font-weight: bold;
+    font-size:28px;
 }
 
 /********************ADD FORM***********************/

@@ -1,30 +1,46 @@
 import React from 'react'
 
+import {useState} from "react";
+
 
 
 const Dashboard = () => {
+    const [customerInfo, setCustomerInfo]  = useState("");
+
+
+    var username = window.sessionStorage.getItem("username");
+        const endPointcustomer = "http://localhost:7000/customerbyusername/"+ username;
+                
+                    fetch(endPointcustomer)              
+                      .then(res => res.json())              
+                      .then((json) => {
+                  setCustomerInfo(json.body[0]);                            
+                    
+                      })
+
+                      window.sessionStorage.setItem("name", customerInfo.name);
     return (
         <>
-        <div className="">
-         <div>Customer Dashboard</div>   <br/>
+       <div className="">
+         <div className = "headingmain">Customer Dashboard</div>   <br/>
          
-          <div>Welcome {sessionStorage.getItem("username")} </div> 
-           <div className= 'grid grid-col-3'>
-           <div className="footer-p"><span className="footer-span">Your Account</span>
+          <div className = "headingdiv"> Welcome {customerInfo.name} !!! </div> 
+           <div className= 'grid grid-col-dashboard'>
+           <div className="dash-p"><span className="footer-span">Here is your Account  Details:</span>
            
            <div>
-           Name:           
+           Name:   {customerInfo.name}        
            </div>
            <div>
-           Email:           
-           </div>
-           
-           <div>
-           Username:           
+           Email:           {customerInfo.email}   
            </div>
            
            <div>
-           Password:           
+           Username:           {customerInfo.username}   
+           </div>
+           
+           <div>
+           Password:           {customerInfo.password}   
            </div>       
                       
            
@@ -35,7 +51,7 @@ const Dashboard = () => {
            </div>
           
            <div className="footer-p"><span className="footer-span"></span></div>
-           </div>
+         </div>
         </div>
         </>
     )
