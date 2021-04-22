@@ -41,6 +41,8 @@ const App = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState([]);
   const [selectedcatName, setSelectedCatName] = useState([]);  
+  const [bestsellers, setBestSellers] = useState([]); 
+
   const history = useHistory();
   
 
@@ -86,6 +88,27 @@ const App = () => {
         })
     }
     fetchProducts();
+  }, []);
+
+
+  React.useEffect(() => {
+    const fetchBestSellers = () => {    
+      const endPointBestSellers = "http://localhost:7000/bestsellers";
+      fetch(endPointBestSellers)
+
+        .then((res) => {
+          return res.json()
+        })
+
+        .then((json) => {         
+         setBestSellers((previousState)=>{  
+          previousState = json.body;
+         return previousState
+        });
+         
+        })
+    }
+    fetchBestSellers();
   }, []);
 
 
@@ -149,7 +172,7 @@ const getFilteredProducts = ()=>{
             </Route>
             <Route path="/dashboard">
               <DashboardPage/>
-            </Route>
+            </Route>           
           </Switch>
           </ScrollToTop>
         </Router>

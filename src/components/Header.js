@@ -22,10 +22,12 @@ function Header() {
     history.push('/products');
 
   } 
+
   const goToHomePage = () => history.push('/');
 
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
   const [searchBox, setSearchBox] = useState("")
+  const [searchResult,setSearchResult]  = useState("");
   const [selectedCategoryName, setSelectedCategoryName] = useState("All");
 
   const getCategoryId = () => {
@@ -80,6 +82,7 @@ function Header() {
    
   }
 
+
   const handleSubmit = e => {
     e.preventDefault();
        // or you can send data to backend
@@ -93,6 +96,27 @@ function Header() {
     handleSubmit();
   }
 };
+
+
+
+
+const searchProd = ()=>{      
+  fetch('http://localhost:7000/searchproducts/'+searchBox)
+  .then(response=>response.json())
+  .then(result=>{
+      console.log(result);
+      setSearchResult(result);
+      
+    })
+      .catch(err=>{
+          console.log(err);
+      });
+  }
+
+   const searchProducts = () => {
+      storeFilteredProducts(searchResult);        
+      storeCategoryName("Products");
+      }                   
 
   return (
     <div className="header">
@@ -136,7 +160,7 @@ function Header() {
         onKeyPress={(evt) => {
          // alert(evt.key.value)
           if (evt.key === 'Enter') {
-          filterProducts()
+          filterProducts()            
           goToProductsPage()
           setSearchBox("")
           }
