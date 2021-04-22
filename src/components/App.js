@@ -49,7 +49,7 @@ const App = () => {
   React.useEffect(() => {
     const fetchProductCat = () => {     
       //const endPointProdCat = "http://localhost:7000/categories";
-      const endPointProdCat = " https://pure-meadow-01496.herokuapp.com/categories";
+      const endPointProdCat = "https://pure-meadow-01496.herokuapp.com/categories";
       
       fetch(endPointProdCat)
 
