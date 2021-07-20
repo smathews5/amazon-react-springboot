@@ -50,8 +50,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchProductCat = () => {     
-      const endPointProdCat = "http://localhost:7000/categories";
-    //  const endPointProdCat = "https://pure-meadow-01496.herokuapp.com/categories";
+     // const endPointProdCat = "http://localhost:7000/categories";
+      const endPointProdCat = "https://pure-meadow-01496.herokuapp.com/categories";
       
       fetch(endPointProdCat)
 
@@ -76,8 +76,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchProducts = () => {    
-      const endPointProducts = "http://localhost:7000/products";
-   // const endPointProducts = "https://pure-meadow-01496.herokuapp.com/products";
+    //  const endPointProducts = "http://localhost:7000/products";
+    const endPointProducts = "https://pure-meadow-01496.herokuapp.com/products";
      
       fetch(endPointProducts)
 
@@ -99,8 +99,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchBestSellers = () => {    
-      const endPointBestSellers = "http://localhost:7000/bestsellers";
-    // const endPointBestSellers = "https://pure-meadow-01496.herokuapp.com/bestsellers";
+    //  const endPointBestSellers = "http://localhost:7000/bestsellers";
+     const endPointBestSellers = "https://pure-meadow-01496.herokuapp.com/bestsellers";
      
       fetch(endPointBestSellers)
 

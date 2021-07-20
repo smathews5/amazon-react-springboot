@@ -9,8 +9,8 @@ const Dashboard = () => {
 
 
     var username = window.sessionStorage.getItem("username");
-        const endPointcustomer = "http://localhost:7000/customerbyusername/"+ username;
-     // const endPointcustomer = "https://pure-meadow-01496.herokuapp.com/customerbyusername/"+ username;
+     //   const endPointcustomer = "http://localhost:7000/customerbyusername/"+ username;
+      const endPointcustomer = "https://pure-meadow-01496.herokuapp.com/customerbyusername/"+ username;
                
                     fetch(endPointcustomer)              
                       .then(res => res.json())              

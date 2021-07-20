@@ -103,7 +103,7 @@ function Header() {
 
 
 const searchProd = ()=>{      
-  fetch('http://localhost:7000/searchproducts/'+searchBox)
+  fetch('https://pure-meadow-01496.herokuapp.com/searchproducts/'+searchBox)
   .then(response=>response.json())
   .then(result=>{
       console.log(result);

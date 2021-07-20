@@ -65,7 +65,7 @@ const SiginForm = () => {
 
         if (validateForm()) {
     
-            fetch("http://localhost:7000/auth", {
+            fetch("https://pure-meadow-01496.herokuapp.com/auth", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
