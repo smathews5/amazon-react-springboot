@@ -42,7 +42,7 @@ const Navigationbar = () => {
           }
           }> Product List &nbsp;&nbsp;</Link>
           &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-          <Link to = "/admin" style={{ color: '#FFF',textDecoration: 'none', textAlign:'right'}}>Admin</Link>
+          <Link to = "/signin" style={{ color: '#FFF',textDecoration: 'none', textAlign:'right'}}>Admin</Link>
          </span>
           
         </div>
