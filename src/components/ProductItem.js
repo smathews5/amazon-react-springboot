@@ -4,7 +4,10 @@ import {useContext} from "react";
 import {Link} from "react-router-dom";
 import ProductsContext from "../context/ProductsContext";
 
+
+
 const ProductItem = ({id,prodImage,prodName,bestSeller,index, source,rating}) => {
+  
   var rate;
   //  alert(id);
     const { storeSelectedProduct} = useContext(ProductsContext);
@@ -33,6 +36,8 @@ const ProductItem = ({id,prodImage,prodName,bestSeller,index, source,rating}) =>
       default:
        rate=1;
     }
+
+
     
  
     return (

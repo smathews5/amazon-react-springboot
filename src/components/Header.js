@@ -12,11 +12,13 @@ import {Redirect}  from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
+import { useStateValue } from "./StateProvider";
 
 function Header() {
   const { productCategory, products, storeFilteredProducts, filteredProducts, getFilteredProducts,storeCategoryName} = useContext(ProductsContext);
   const history = useHistory();
- 
+  const [{ basket }, dispatch] = useStateValue();
+  
   const goToProductsPage = () =>{
     const latestFilteredProducts = getFilteredProducts();
     history.push('/products');
@@ -101,7 +103,7 @@ function Header() {
 
 
 const searchProd = ()=>{      
-  fetch('https://pure-meadow-01496.herokuapp.com/searchproducts/'+searchBox)
+  fetch('http://localhost:7000/searchproducts/'+searchBox)
   .then(response=>response.json())
   .then(result=>{
       console.log(result);
@@ -198,10 +200,10 @@ const searchProd = ()=>{
           <span className="header__optionLineTwo">Prime</span>
         </div>
         <div className="header__optionBasket">
-          <FaShoppingCart style={{width: '30px',height:'30px' }}/>
+        <Link to="/checkout">   <FaShoppingCart style={{width: '30px',height:'30px' }}/>
           <span className="header__optionLineTwo header__basketCount">
-            0
-            </span>
+          {basket?.length}
+            </span></Link>
         </div>
        
       </div>

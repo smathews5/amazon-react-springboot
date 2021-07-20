@@ -1,5 +1,5 @@
 import React from 'react'
-
+import  {Link} from 'react-router-dom'
 import {useState} from "react";
 
 
@@ -9,8 +9,8 @@ const Dashboard = () => {
 
 
     var username = window.sessionStorage.getItem("username");
-      //  const endPointcustomer = "http://localhost:7000/customerbyusername/"+ username;
-      const endPointcustomer = "https://pure-meadow-01496.herokuapp.com/customerbyusername/"+ username;
+        const endPointcustomer = "http://localhost:7000/customerbyusername/"+ username;
+     // const endPointcustomer = "https://pure-meadow-01496.herokuapp.com/customerbyusername/"+ username;
                
                     fetch(endPointcustomer)              
                       .then(res => res.json())              
@@ -47,7 +47,13 @@ const Dashboard = () => {
            
            </div>
            <div className="footer-p"><span className="footer-span"></span>
-           
+           <Link to = "/" style={{textDecoration: 'none'}}>  <button  className="signInsignUpbtn" type="button"
+        
+           >Add Category</button></Link ><br/><br/><br/>
+           <Link to = "/" style={{textDecoration: 'none'}}>  <button  className="signInsignUpbtn" type="button"
+        
+           >  Add Products</button></Link >
+         
            
            </div>
           

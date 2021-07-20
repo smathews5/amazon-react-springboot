@@ -41,7 +41,8 @@ const Navigationbar = () => {
             storeCategoryName("All Products");
           }
           }> Product List &nbsp;&nbsp;</Link>
-           
+          &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+          <Link to = "/admin" style={{ color: '#FFF',textDecoration: 'none', textAlign:'right'}}>Admin</Link>
          </span>
           
         </div>

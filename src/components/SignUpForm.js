@@ -103,7 +103,7 @@ const SignUpForm = () => {
         if (validateForm()) {
 
 
-            fetch("https://pure-meadow-01496.herokuapp.com/customers", {
+            fetch("http://localhost:7000/customers", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

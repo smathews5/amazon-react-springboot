@@ -12,7 +12,9 @@ import DashboardPage from "../pages/DashboardPage";
 import SignInPage from "../pages/SignInPage";
 import SignUpPage from "../pages/SignUpPage";
 import ScrollToTop from './ScrollToTop'
-
+import CheckoutPage from '../pages/CheckoutPage'
+import PaymentPage from '../pages/PaymentPage'
+import AdminPage from '../pages/AdminPage'
 
 import ProductsContext from "../context/ProductsContext";
 
@@ -48,8 +50,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchProductCat = () => {     
-      //const endPointProdCat = "http://localhost:7000/categories";
-      const endPointProdCat = "https://pure-meadow-01496.herokuapp.com/categories";
+      const endPointProdCat = "http://localhost:7000/categories";
+    //  const endPointProdCat = "https://pure-meadow-01496.herokuapp.com/categories";
       
       fetch(endPointProdCat)
 
@@ -74,8 +76,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchProducts = () => {    
-    //  const endPointProducts = "http://localhost:7000/products";
-    const endPointProducts = "https://pure-meadow-01496.herokuapp.com/products";
+      const endPointProducts = "http://localhost:7000/products";
+   // const endPointProducts = "https://pure-meadow-01496.herokuapp.com/products";
      
       fetch(endPointProducts)
 
@@ -97,8 +99,8 @@ const App = () => {
 
   React.useEffect(() => {
     const fetchBestSellers = () => {    
-     // const endPointBestSellers = "http://localhost:7000/bestsellers";
-     const endPointBestSellers = "https://pure-meadow-01496.herokuapp.com/bestsellers";
+      const endPointBestSellers = "http://localhost:7000/bestsellers";
+    // const endPointBestSellers = "https://pure-meadow-01496.herokuapp.com/bestsellers";
      
       fetch(endPointBestSellers)
 
@@ -178,7 +180,16 @@ const getFilteredProducts = ()=>{
             </Route>
             <Route path="/dashboard">
               <DashboardPage/>
-            </Route>           
+            </Route>   
+            <Route path="/checkout">
+            <CheckoutPage/>
+          </Route> 
+          <Route path="/payment">
+          <PaymentPage/>
+        </Route>    
+        <Route path="/admin">
+        <AdminPage/>
+      </Route>          
           </Switch>
           </ScrollToTop>
         </Router>

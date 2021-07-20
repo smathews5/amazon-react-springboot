@@ -2,13 +2,15 @@ import React from 'react'
 import {useContext} from "react";
 import {useEffect,useState} from 'react';
 import {useParams} from "react-router-dom"
-
+import { useStateValue } from "./StateProvider";
 
 import ProductsContext from "../context/ProductsContext";
 
 
 
 const ProductDescription = () => {
+  const [qty, setQty] = useState(1);
+  const [{ basket }, dispatch] = useStateValue();
  // alert("inside Product Desc")
    // const { selectedProduct } = useContext(ProductsContext);
     const {id} = useParams();
@@ -16,7 +18,7 @@ const ProductDescription = () => {
     var rate;
  
  useEffect(()=>{
-   fetch("https://pure-meadow-01496.herokuapp.com/products/"+id)
+   fetch("http://localhost:7000/products/"+id)
    .then(res=>res.json())
    .then((json)=>{
      console.log("json.body"+JSON.stringify(json.body));
@@ -46,7 +48,21 @@ const ProductDescription = () => {
   default:
    rate=1;
 }
-
+const addToBasket = () => {
+  // dispatch the item into the data layer
+  dispatch({
+    type: "ADD_TO_BASKET",
+    item: {
+      id: products.id,
+      prodName: products.productName,
+      prodImage: products.productImageBig,
+      productPrice: products.productPrice,  
+      productQty: qty,  
+      rating: products.rating,
+     
+    },
+  });
+};
  
 // var stars = Array(rate).fill(0);
  
@@ -76,7 +92,10 @@ const ProductDescription = () => {
         
         {products.stock ? <span ><p>
         <label for="quantity">Quantity:</label>
-        <select name="quantity" id="quantity">
+        <select name="quantity" id="quantity" onChange={(evt) => {
+            
+          setQty(evt.target.value);
+        }}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -91,7 +110,11 @@ const ProductDescription = () => {
       </p></span>: 
       <span ><p>
         <label for="quantity">Quantity:</label>
-        <select name="quantity" id="quantity" disabled="true">
+        <select name="quantity" id="quantity" disabled="true"  onChange={(evt) => {
+            
+          setQty(evt.target.value);
+        }}>
+       
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -105,10 +128,10 @@ const ProductDescription = () => {
       </select>
       </p></span>}
       <span ><p>
-        <button class="css-button  css-button-icon css-button-text" ><i class="fa fa-cart-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add to Cart</button>
+        <button class="css-button  css-button-icon css-button-text" onClick={addToBasket} ><i class="fa fa-cart-plus" aria-hidden="true" ></i>&nbsp;&nbsp;Add to Cart</button>
         </p></span><br/><br/><br/><br/>
       </div>
-     
+      
         </div>
     )
 }

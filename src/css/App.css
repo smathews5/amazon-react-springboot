@@ -743,7 +743,16 @@ link {
         cursor:pointer;
    
     }
-     
+    .Admin-header {
+      
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(5px + 2vmin);
+        color: white;
+      }
     
  /**************Media queries*****************************/   
     /* X-Small devices (portrait phones, less than 576px)*/
